@@ -1,1 +1,1364 @@
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+
 # GateSmashers-DBMS
+
+Unlock the power of structured data with our meticulously curated repository of notes from a renowned Database Management System (DBMS) lecture series. Dive deep into the world of databases as we distill complex concepts and real-world applications into easily digestible insights. Whether you're a student striving for academic excellence or a professional looking to bolster your database expertise, our notes are your gateway to mastering the art of data management. Explore, learn, and take control of data like never before with this comprehensive DBMS lecture series compendium
+
+🔗 [Database Management Systems - Playlist](https://www.youtube.com/playlist?list=PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y)
+
+## Table of Content
+
+### Note: 🚧 Missing Lecture Notes will be updated soon
+
+   * [**Lecture 05**: **Schema in a Database**](#lecture-05-schema-in-a-database)
+   * [**Lecture 06**: **Three Schema Architecture in DBMS**](#lecture-06-three-schema-architecture-in-dbms)
+   * [**Lecture 07**: **Data Independence and 3 Schema Architecture**](#lecture-07-data-independence-and-3-schema-architecture)
+   * [**Lecture 08**: **Candidate Key in Databases**](#lecture-08-candidate-key-in-databases)
+   * [**Lecture 09**: **Primary Key in Databases**](#lecture-09-primary-key-in-databases)
+   * [**Lecture 10**: **Foreign Key in Databases -** **Part 1**](#lecture-10-foreign-key-in-databases---part-1)
+   * [**Lecture 11**: **Foreign Key in Databases - Part 2**](#lecture-11-foreign-key-in-databases---part-2)
+   * [**Lecture 14**: **Entity-Relationship (ER) Model Basics**](#lecture-14-entity-relationship-er-model-basics)
+   * [**Lecture 15**: **Types of Attributes in Relational Databases**](#lecture-15-types-of-attributes-in-relational-databases)
+   * [**Lecture 16**: **Degree of Relationship in Database** **(One-to-One)**](#lecture-16-degree-of-relationship-in-database-one-to-one)
+   * [**Lecture 17**: **Degree of Relationship in Database (One-to-Many)**](#lecture-17-degree-of-relationship-in-database-one-to-many)
+   * [**Lecture 18**: **Degree of Relationship in Database (Many-to-Many)**](#lecture-18-degree-of-relationship-in-database-many-to-many)
+   * [Lecture 69: **Introduction to Transaction Concurrency**](#lecture-69-introduction-to-transaction-concurrency)
+   * [Lecture70: **ACID Properties in Database Transactions**](#lecture70-acid-properties-in-database-transactions)
+   * [Lecture71: **Transaction States**](#lecture71-transaction-states)
+   * [Lecture72: **Serial Schedule vs. Parallel** **Schedule in Transactions**](#lecture72-serial-schedule-vs-parallel-schedule-in-transactions)
+   * [Lecture73: **Read-Write Problem (Read-Write Conflict)**](#lecture73-read-write-problem-read-write-conflict)
+   * [Lecture74: **Irrecoverable Schedule**](#lecture74-irrecoverable-schedule)
+   * [Lecture75: **Cascading vs. Cascade-less Schedules**](#lecture75-cascading-vs-cascade-less-schedules)
+   * [Lecture76: **Serializability in Database Transactions**](#lecture76-serializability-in-database-transactions)
+   * [**Lecture 77**: **Finding Conflict Equivalent Schedules**](#lecture-77-finding-conflict-equivalent-schedules)
+   * [**Lecture 78**: **Conflict Serializability**](#lecture-78-conflict-serializability)
+   * [**Lecture 79**: **View Serializability**](#lecture-79-view-serializability)
+   * [**Lecture 80**: **Concurrency Control Protocols - Shared-Exclusive Locking**](#lecture-80-concurrency-control-protocols---shared-exclusive-locking)
+   * [**Lecture 81**: **Shared-Exclusive Locking Protocol - Problems and Considerations**](#lecture-81-shared-exclusive-locking-protocol---problems-and-considerations)
+   * [**Lecture 82**: **Two-Phase Locking Protocol (2PL)**](#lecture-82-two-phase-locking-protocol-2pl)
+   * [**Lecture 83**: **Problems in Two-Phase Locking Protocol (2PL)**](#lecture-83-problems-in-two-phase-locking-protocol-2pl)
+   * [**Lecture 84**: **Strict 2PL and Rigorous 2PL**](#lecture-84-strict-2pl-and-rigorous-2pl)
+   * [**Lecture 85**: **Timestamp Ordering Protocol**](#lecture-85-timestamp-ordering-protocol)
+   * [**Lecture 86**: **Numeric Question on Basic Timestamp Ordering Protocol**](#lecture-86-numeric-question-on-basic-timestamp-ordering-protocol)
+   * [Lecture87: **Why Indexing is used?**](#lecture87-why-indexing-is-used)
+   * [Lecture88: **Numerical Example on I/O Cost in Indexing Part 1**](#lecture88-numerical-example-on-io-cost-in-indexing-part-1)
+   * [Lecture89: **Numerical Example on I/O Cost in Indexing Part 2**](#lecture89-numerical-example-on-io-cost-in-indexing-part-2)
+   * [Lecture90: **Types of Indexes in Databases**](#lecture90-types-of-indexes-in-databases)
+   * [Lecture91: **Primary Index in Databases**](#lecture91-primary-index-in-databases)
+   * [Lecture92: **Clustered index in Databases**](#lecture92-clustered-index-in-databases)
+   * [Lecture93: **Secondary Index in Databases**](#lecture93-secondary-index-in-databases)
+
+<!-- TOC end -->
+
+## [**Lecture 05**](https://youtu.be/pDX4NR4eY3A): **Schema in a Database**
+- **Introduction:**
+	- Schema is a fundamental concept used in various areas of databases.
+	- Provides a logical representation of data in the database.
+- **What is Schema?**
+	- Schema: Logical representation of a database.
+	- Physical vs. Logical Representation:
+		- Physical: How data is stored on hard drives or backend servers.
+		- Logical: How data is represented conceptually.
+	- Example: In Relational Database Management Systems (RDBMS), data is logically represented as tables or relations.
+	- Entities and Relations: Entities (e.g., Student, Course) represented as tables with attributes (columns).
+	- Schema Design: Defining the structure of entities, e.g., attributes for a Student entity (e.g., Roll Number, Name, Address).
+	- Schema = Logical Structure: Tables, attributes, relationships, and constraints.
+- **Implementing Schema:**
+	- Implementation of schema is done using SQL (Structured Query Language).
+	- SQL, especially Data Definition Language (DDL) commands, used for schema design and implementation.
+	- DDL Commands: Create table, Alter table, Drop table, etc.
+	- Schema Implementation: Translates the logical representation into a structured database.
+	- Example: Roll Number (integer), Name (varchar/character), Address (character).
+- **Three Schema Architecture:**
+	- Conceptual Schema: Represents data logically.
+	- Logical Schema: Defines the structure and relationships of the data.
+	- Physical Schema: Specifies how data is physically stored and accessed.
+	- Conceptual schema is the main focus for logical representation.
+- **Schema as a Structure:**
+	- Schema can be seen as a structure.
+	- It may consist of multiple related tables.
+	- A schema is a collection of tables, forming the logical structure of the database.
+- **Conclusion:**
+	- Schema is a logical representation of a database.
+	- It is used to define the structure and relationships of data.
+	- Schema design can be implemented using SQL, especially DDL commands.
+	- In databases, schema is a fundamental concept used in various aspects of data management and querying.
+## [**Lecture 06**](https://youtu.be/5fs1ldO6B5c): **Three Schema Architecture in DBMS**
+- **Introduction:**
+	- Three Schema Architecture enhances data independence and provides data abstraction.
+- **Schema Definition:**
+	- Schema refers to the structure or organization of data.
+	- In a database context, schema defines how data is organized, stored, and accessed.
+- **Three Schema Architecture:**
+	- Three Schema Architecture consists of three levels:
+		- 1. **External Schema (View Level):**
+			- Also known as View Level.
+			- Concerned with how data is presented to different user groups.
+			- Each user group may have its own view or representation of the data.
+			- Example: Students and faculty members in a university may have different views of the same data.
+		- 2. **Conceptual Schema (Logical Level):**
+			- Defines the overall logical structure of the database.
+			- Describes the entities, attributes, and relationships between data elements.
+			- Helps in maintaining data consistency and integrity.
+			- Serves as a blueprint for data organization.
+			- Example: Defining tables, attributes, and relationships for a university database.
+		- 3. **Physical Schema (Internal Level):**
+			- Deals with the physical storage and access mechanisms of data.
+			- Specifies how data is stored on physical storage devices (e.g., hard disks).
+			- Addresses data storage details like file formats, locations, and indexing.
+			- Managed by database administrators.
+			- Example: Deciding where and how to store university data on hard drives.
+- **Purpose of Three Schema Architecture:**
+	- Data Independence: Ensures that users are isolated from the physical storage details of data.
+	- Data Abstraction: Allows users to work with abstract representations of data without knowing the underlying physical storage structure.
+	- Security and Authorization: Different views and access levels can be defined for various user groups, enhancing data security.
+	- Flexibility: Enables modifications in one schema level without affecting the other levels.
+	- Scalability: Supports the scaling of the database system with changes in storage or user requirements.
+- **Real-World Examples:**
+	- User interfaces (e.g., web applications) represent the external schema.
+	- The logical schema defines how data tables are structured and related.
+	- Physical schema is managed by database administrators, who determine how data is stored on hard drives.
+- **Conclusion:**
+	- Three Schema Architecture is a fundamental concept in database management.
+	- It provides data independence and abstraction by dividing the database into external, conceptual, and physical levels.
+	- Each level serves a specific purpose in managing data efficiently and securely.
+## [**Lecture 07**](https://youtu.be/upUSGUSK5k0): **Data Independence and 3 Schema Architecture**
+- **Purpose of Three Schema Architecture:**
+	- The purpose of Three Schema Architecture is to provide data independence, making users independent from the complexities of data storage and structure.
+- **Data Independence:**
+	- Data independence means making users independent from the details of data storage and structure.
+	- Users should be able to access data 24x7, from anywhere, without needing to know how data is stored, indexed, or structured.
+- **Three Types of Data Independence:**
+	- 1. **Logical Data Independence:**
+		- Refers to changes in the conceptual schema (logical structure) not affecting the application programs.
+		- Users can make changes like adding or removing columns without impacting existing applications.
+		- Achieved through the use of views, which present a subset of available columns to users.
+	- 2. **Physical Data Independence:**
+		- Refers to changes in the physical schema (data storage and structure) not affecting the conceptual schema.
+		- Changing the physical storage location, data structures, or indexes doesn't alter the logical structure.
+		- Allows for flexibility in data storage without impacting applications.
+- **Benefits of Data Independence:**
+	- Users can access data conveniently without needing to understand its underlying complexities.
+	- Changes in the physical or logical schema won't disrupt existing applications.
+	- Applications remain consistent and unaffected by backend modifications.
+	- Provides transparency to users, making them feel that data is readily available even as it undergoes changes behind the scenes.
+- **Example: Gmail and Data Independence:**
+	- Services like Gmail constantly make changes in their backend systems to optimize performance.
+	- These changes include modifications to the physical and logical schema.
+	- Users continue to access Gmail seamlessly without noticing these changes, demonstrating data independence in action.
+- **Conclusion:**
+	- Data independence is a crucial concept in database management.
+	- It ensures users can access data without being impacted by changes in data storage or logical structure.
+	- Three Schema Architecture provides a framework for achieving data independence through its view, conceptual, and physical levels.
+## [**Lecture 08**](https://youtu.be/mMxjKFiIKxs): **Candidate Key in Databases**
+- **Introduction:**
+	- Candidate keys are a fundamental concept in databases that play a crucial role in uniquely identifying tuples (rows) within a table.
+- **Understanding Keys:**
+	- A "key" in a database is a regular attribute (column) that serves the purpose of uniquely identifying rows within a table.
+	- Keys are used to differentiate between rows and avoid ambiguity in cases where identical data exists in a table.
+- **Importance of Keys:**
+	- Keys are essential for maintaining data integrity and preventing confusion when dealing with similar or identical data.
+	- In online database systems, it can be challenging to distinguish between two identical rows, especially when the data may belong to the same entity but was entered twice by mistake or is genuinely associated with two different entities.
+- **Candidate Keys:**
+	- Candidate keys are specific attributes (or combinations of attributes) within a table that can uniquely identify any two tuples in the table.
+	- These keys are a subset of the table's attributes and are chosen carefully to ensure uniqueness.
+- **Examples of Candidate Keys:**
+	- In the context of a "student" table, candidate keys can include attributes like:
+		- 1. Aadhar card number
+		- 2. Roll number
+		- 3. Registration number
+		- 4. Student's license number
+		- 5. Voter ID
+		- 6. Student's phone number
+		- 7. Email ID
+	- What makes these attributes candidate keys is that the values for these attributes will always be unique for each student. For instance, two students are unlikely to have the same roll number, Aadhar card number, or email ID.
+- **The Candidate Key Set:**
+	- The candidate key set is the collection of all such attributes that can serve as candidate keys within a table. In the example above, it includes Aadhar card number, roll number, registration number, license number, voter ID, phone number, and email ID.
+- **Primary Key Selection:**
+	- From the candidate key set, one key is chosen as the primary key.
+	- The primary key is selected based on its appropriateness and relevance to the context of the database.
+	- The primary key plays a unique role in enforcing data integrity and serves as the main identifier for each tuple in the table.
+- **Alternative Keys:**
+	- The keys not chosen as the primary key are referred to as alternative keys.
+	- While they are not used as the main identifier, alternative keys can still serve as unique identifiers for tuples within the table.
+- **Conclusion:**
+	- Candidate keys are fundamental to database design and are used to ensure that each row in a table can be uniquely identified.
+	- The candidate key set is a collection of attributes capable of uniquely identifying tuples.
+	- From the candidate key set, one key is chosen as the primary key, which plays a central role in database integrity and consistency.
+## [**Lecture 09**](https://youtu.be/Tp37HXfekNo): **Primary Key in Databases**
+- **Introduction:**
+	- The primary key is a fundamental concept in database management systems (DBMS) used to uniquely identify records (tuples) within a database table.
+- **What is a Key?**
+	- In the context of a database, a key is an attribute (column) used to uniquely identify records within a table.
+	- Keys serve a similar purpose to keys in locks – they ensure that each record can be distinguished from others.
+- **Importance of Keys:**
+	- Keys are essential for maintaining data integrity and avoiding ambiguity when dealing with similar or identical data.
+	- In online database systems, it's challenging to distinguish between two identical records, and keys help address this issue.
+- **Candidate Keys:**
+	- Candidate keys are attributes (or combinations of attributes) in a table capable of uniquely identifying any two records.
+	- Examples of candidate keys include phone numbers, Aadhaar card numbers, PAN card numbers, license numbers, registration numbers, or roll numbers.
+- **Properties of Candidate Keys:**
+	- 1. **Uniqueness:** Candidate keys must ensure that each value within the attribute is unique. No two records should have the same value for the candidate key attribute.
+	- 2. **Not Null:** A candidate key attribute cannot have a null value (empty). It must contain a value for every record.
+- **Primary Key:**
+	- The primary key is chosen from the set of candidate keys. It serves as the main identifier for records within a table.
+	- The primary key must meet two essential criteria:
+		- 1. **Uniqueness:** Like candidate keys, the primary key must ensure the uniqueness of values within the attribute.
+		- 2. **Not Null:** The primary key attribute cannot have null values; it must contain a value for each record.
+	- **Choosing a Primary Key:**
+		- The choice of the primary key depends on the specific scenario and the database's requirements.
+		- Common examples of primary keys include:
+			- Registration numbers or roll numbers for students in an educational institution.
+			- Passport numbers in a passport database.
+			- License numbers in a driver's license database.
+	- **Constraints on Primary Keys:**
+		- A database can only have one primary key; it cannot have multiple primary keys.
+		- Attempting to create multiple primary keys for a table will typically result in an error.
+		- The selection of the primary key is based on the attribute that best serves the uniqueness and not null criteria for the given data.
+	- **Conclusion:**
+		- The primary key is a vital concept in database management, ensuring the uniqueness and integrity of records.
+		- It is unique and not null, distinguishing it from other attributes in the table.
+		- Understanding how to choose an appropriate primary key is crucial for designing effective and accurate databases.
+## [**Lecture 10**](https://youtu.be/UyqpQ3D2yCw): **Foreign Key in Databases -** **Part 1**
+- **Introduction:**
+	- A foreign key is a crucial element in database design, helping establish relationships between tables.
+- **What is a Foreign Key?**
+	- A foreign key is an attribute (or set of attributes) in a table that references the primary key of either the same table or another table.
+	- It plays a critical role in maintaining data integrity and relationships between tables.
+- **Attributes of a Foreign Key:**
+	- A foreign key can be a single attribute or a combination of attributes.
+	- The critical point is that it references the primary key of another table.
+- **Example Tables:**
+	- 1. **Student Table:**
+		- Contains student information like roll number, name, address, etc.
+		- Roll number is the primary key of this table, ensuring uniqueness and non-null values.
+	- 2. **Course Table:**
+		- Stores information about various courses.
+		- Utilizes the roll number as a foreign key, establishing a relationship between students and courses.
+- **Establishing a Relationship:**
+	- When two tables, like Student and Course, are related, they must share at least one common attribute.
+	- In this case, the common attribute is the roll number.
+- **Foreign Key in Action:**
+	- The foreign key in the Course table references the primary key (roll number) in the Student table.
+	- When inserting data into the Course table, the roll number in the foreign key column must correspond to an existing roll number in the Student table.
+	- This ensures that the data is valid and maintains the integrity of the relationship.
+- **SQL Syntax for Foreign Key:**
+	- When creating a table with a foreign key:
+		- ```sql
+			CREATE TABLE Course (
+				course_id VARCHAR,
+				course_name VARCHAR,
+				roll_number INT REFERENCES Student(roll_number)
+			);
+			```
+			
+		- Here, roll_number in the Course table is declared as a foreign key that references the roll_number in the Student table.
+	- When adding a foreign key constraint to an existing table:
+		- ```sql
+			ALTER TABLE Course
+			ADD CONSTRAINT FK
+			FOREIGN KEY (roll_number)
+			REFERENCES Student(roll_number);
+			```
+			
+- **Multiple Foreign Keys and Referential Integrity:**
+	- A table can have multiple foreign keys, but it can only have one primary key.
+	- Foreign keys play a vital role in maintaining referential integrity, ensuring that relationships between tables are upheld.
+	- Part 2 of the lecture will delve into the concept of referential integrity and how foreign keys help maintain it.
+- **Conclusion - Part 1:**
+	- A foreign key is an attribute or set of attributes that references the primary key of another table.
+	- It establishes relationships between tables and ensures that data integrity is maintained when inserting data into tables with foreign keys.
+	- (Note: Part 2 of the lecture will cover referential integrity and the role of foreign keys in maintaining it.)
+## [**Lecture 11**](https://youtu.be/DM2lAomoDrg): **Foreign Key in Databases - Part 2**
+- **Introduction:**
+	- We focus on the concept of referential integrity and how foreign keys play a crucial role in maintaining it.
+- **Referential Integrity:**
+	- Referential integrity in a database ensures that values are consistent and interconnected across tables.
+	- It guarantees that relationships between tables are maintained accurately.
+- **Example Scenario:**
+	- Consider a university database with two tables: Student and Course.
+	- The Student table contains student details like roll number, name, and address.
+	- The Course table stores information about various courses and references student roll numbers to indicate enrollment.
+- **Insertion in Referenced Table (Student):**
+	- Inserting new data into the referenced table (Student) doesn't create problems.
+	- For example, adding a new student with roll number 4, name D, and address from Chandigarh is acceptable.
+- **Deletion in Referenced Table (Student):**
+	- Deleting data from the referenced table (Student) can potentially cause issues.
+	- For instance, if you remove a student (e.g., roll number 1) from the Student table, but that same student is enrolled in a course in the Course table, it creates inconsistency.
+	- Solutions:
+		- 1. **On Delete Cascade:** Automatically deletes corresponding rows in referencing tables when a row in the referenced table is deleted.
+		- 2. **On Delete Set Null:** Sets the foreign key in referencing tables to null when a row in the referenced table is deleted.
+		- 3. **On Delete No Action (Default):** Prevents deletion of rows in the referenced table if they are referenced in other tables.
+- **Insertion in Referencing Table (Course):**
+	- Inserting data into the referencing table (Course) can be problematic.
+	- You cannot insert data if the foreign key references a non-existent primary key in the referenced table.
+	- For example, attempting to insert a course (C3 - C++) with roll number 7 into the Course table is problematic because roll number 7 doesn't exist in the Student table.
+- **Deletion in Referencing Table (Course):**
+	- Deleting data from the referencing table (Course) usually doesn't cause violations since you're removing course information, not students.
+- **Updation in Referenced or Referencing Table:**
+	- Updating data in either the referenced or referencing table can lead to issues.
+	- For example, if you change the roll number of a student in the Student table (e.g., from 2 to 20), and the same roll number (2) exists in the Course table, it creates inconsistency.
+	- Solutions:
+		- 1. **On Update Cascade:** Automatically updates corresponding rows in referencing tables when a row in the referenced table is updated.
+		- 2. **On Update Set Null:** Sets the foreign key in referencing tables to null when a row in the referenced table is updated.
+		- 3. **On Update No Action (Default):** Prevents updates of rows in the referenced table if they are referenced in other tables.
+		
+- **Conclusion - Part 2:**
+	- Referential integrity ensures that data relationships between tables remain consistent.
+	- Foreign keys play a vital role in maintaining referential integrity by enforcing rules for insertion, deletion, and updation in both referenced and referencing tables.
+	- Understanding these concepts is essential for maintaining data accuracy and preventing inconsistencies in a database.
+	- (Note: It's crucial to choose the appropriate action when defining foreign key constraints, depending on the specific requirements of your database.)
+
+## [**Lecture 14**](https://youtu.be/gbVev8RuZLg): **Entity-Relationship (ER) Model Basics**
+- **Introduction:**
+	- Purpose of ER model: Logical representation and conceptual design of data.
+- **Concepts in the ER Model:**
+	- 1. **Entities:**
+		- Entities represent objects with physical existence.
+		- Examples: Student, Course, Employee.
+		- Entities are depicted using rectangles in the ER diagram.
+	- 2. **Attributes:**
+		- Attributes are characteristics or properties of entities.
+		- Examples for the Student entity: Roll number, Age, Address.
+		- Attributes are represented using ovals or ellipses in the ER diagram.
+	- 3. **Relationships:**
+		- Relationships denote associations between two or more entities.
+		- Example: The relationship "Study" connects the Student and Course entities.
+		- Relationships are illustrated using diamonds in the ER diagram.
+- **Advantages of ER Model:**
+	- Provides a logical and conceptual view of data.
+	- Facilitates understanding of data requirements before implementation.
+	- Helps avoid costly changes in the implementation phase due to misunderstood requirements.
+	- Serves as a blueprint for designing the database schema.
+- **Entity Types and Schemas:**
+	- An entity type represents a category of entities that share the same attributes.
+	- Entity type can be equated to a schema, defining the structure of entities and their attributes.
+- **Implementation with SQL (Structured Query Language):**
+	- While ER models are for conceptual representation, the actual implementation is done using SQL.
+	- SQL's Data Definition Language (DDL) is used for defining tables, attributes, and relationships.
+- **Conclusion:**
+	- The Entity-Relationship (ER) model is a conceptual tool for representing data.
+	- Entities, attributes, and relationships are fundamental concepts in the ER model.
+	- ER diagrams provide a visual representation of data structures and associations.
+	- Understanding the ER model is crucial for designing and managing databases effectively.
+## [**Lecture 15**](https://youtu.be/WEo3g6Ir-vA): **Types of Attributes in Relational Databases**
+- **Introduction:**
+	- Attributes are characteristics or properties of entities in an Entity-Relationship (ER) model.
+	- Attributes play a crucial role in designing database schemas.
+- **Types of Attributes:**
+- 1. **Single vs. Multi-valued Attributes:**
+	- **Single Attribute:** Contains only one value, cannot have more than one.
+		- Example: Registration number of a student.
+	- **Multi-valued Attribute:** Contains more than one value.
+		- Examples: Mobile numbers, addresses (permanent and correspondence).
+- 2. **Simple vs. Composite Attributes:**
+	- **Simple Attribute:** Cannot be further divided; represents a single value.
+		- Example: Student's age.
+	- **Composite Attribute:** Composed of multiple sub-attributes.
+		- Example: Student's name (first name, middle name, last name).
+- 3. **Stored vs. Derived Attributes:**
+	- **Stored Attribute:** Contains fixed, stored values.
+		- Example: Date of birth, directly input by the user.
+	- **Derived Attribute:** Value is calculated or derived from other attributes.
+		- Example: Age, calculated from date of birth and current date.
+	- **Representation:** Derived attributes are often represented with dotted ellipses in the ER model.
+- 4. **Key vs. Non-Key Attributes:**
+	- **Key Attribute:** Uniquely identifies each row or entity.
+		- Example: Student's registration number (represented with an underline).
+	- **Non-Key Attribute:** May have non-unique values.
+		- Examples: Student's name, mobile number (represented with a normal ellipse).
+- 5. **Required vs. Optional Attributes:**
+	- **Required Attribute:** Value is mandatory, must be provided.
+		- Example: Student's name when enrolling.
+	- **Optional Attribute:** Value can be omitted temporarily.
+		- Example: Address or date of birth, can be added later if needed.
+	- **Representation:** No specific representation in the ER model.
+- 6. **Complex Attributes:**
+	- Complex attributes combine composite and multi-valued attributes.
+	- Example: Multiple residential addresses, each with multiple phone numbers.
+- **Conclusion:**
+	- Attributes in an ER model describe the characteristics of entities.
+	- Understanding attribute types is essential for effective database design.
+	- Key attributes uniquely identify entities, while derived attributes are calculated from other attributes.
+	- Complex attributes combine composite and multi-valued attributes, adding flexibility to database design.
+	- Consider attribute types carefully when designing a database schema.
+## [**Lecture 16**](https://youtu.be/s6MH7f3SnsY): **Degree of Relationship in Database** **(One-to-One)**
+- **Introduction:**
+	- Relationships define associations between entities in the Entity-Relationship (ER) model.
+	- Understanding how to implement relationships in a relational database is essential.
+- **Types of Relationships:**
+	- 1. **One-to-One Relationship:**
+		- Definition: Two entities are connected, and their association is one-to-one.
+		- Example: Employee and Department relationship, where each employee is associated with one department, and vice versa.
+		- Data Constraint: No repetition of related entities in either table.
+		- Implementation: A separate table (Work) is used to maintain the relationship.
+			- Attributes: Typically includes Employee ID (EID) and Department ID (DID).
+			- Primary Key: Either EID or DID can be the primary key in the relationship table.
+			- Reduction: Depending on the primary key choice, you can merge either the Employee or Department table into the relationship table.
+- **Key Points to Remember:**
+	- The degree of relationship defines how entities are connected in a database.
+	- One-to-One relationship implies a unique association between entities.
+	- In a one-to-one relationship, data constraints prevent repetition of related entities.
+	- A relationship table (e.g., Work) is used to represent one-to-one relationships.
+	- The primary key in the relationship table can be either EID or DID, depending on your choice.
+	- You can reduce tables by merging them if the primary key is selected correctly.
+	- Proper understanding of relationships is crucial for designing an efficient database schema.
+## [**Lecture 17**](https://youtu.be/rZxETdO_KUQ): **Degree of Relationship in Database (One-to-Many)**
+- **Introduction:**
+	- This is a crucial concept in database management and is essential for understanding the ER modeling and relational model.
+- **Representation of One-to-Many Relationship:**
+	- One-to-Many relationship involves two entities, such as Customer and Order.
+	- In a One-to-Many relationship, one entity (e.g., Customer) can be associated with multiple entities (e.g., Orders).
+	- This relationship is represented as "1 to infinity" or "1 to M."
+- **ER Model to Relational Model Conversion:**
+	- In the relational model, entities are represented as tables.
+	- Key attributes are designated as primary keys.
+	- A separate table is created for the relationship.
+- **Attributes in Relationship Table:**
+	- In the relationship table, there are two mandatory attributes: ID (acting as a foreign key) and Order Number (also acting as a foreign key).
+	- Descriptive attributes (e.g., Date) can be added to the relationship table.
+- **Determining the Primary Key in Relationship Table:**
+	- In a One-to-Many relationship, the side with "Many" (e.g., Orders) has repeating values.
+	- The side with "One" (e.g., Customer) has unique values.
+	- Therefore, the primary key in the relationship table is the attribute from the "One" side, which is Order Number.
+- **Reducing Tables:**
+	- If there are three tables (Customer, Order, Relationship), you can reduce them to two by merging tables with the same primary key.
+	- Merge tables where the "Many" side has the same primary key attribute.
+- **Key Takeaways:**
+	- One-to-Many relationships involve one entity linked to multiple entities.
+	- The representation is "1 to infinity" or "1 to M."
+	- In the relational model, entities become tables with primary keys.
+	- The primary key in the relationship table comes from the "One" side.
+	- Tables can be reduced by merging tables with the same primary key.
+- **Conclusion:**
+	- Understanding One-to-Many relationships is crucial for proper database design and handling. It involves converting ER models into relational models and optimizing table structures for efficient database management.
+## [**Lecture 18**](https://youtu.be/onR_sLhbZ4w): **Degree of Relationship in Database (Many-to-Many)**
+- **Entity Description:**
+	- Consider two entities: Student and Course.
+	- A "study" relationship exists between them, which is of type Many-to-Many.
+- **Attributes of Entities:**
+	- Student Entity Attributes:
+		- Roll Number (Primary Key)
+		- Name
+		- Age
+	- Course Entity Attributes:
+		- Course ID (Primary Key)
+		- Course Name
+		- Credits
+- **Understanding the Study Relationship:**
+	- The "study" relationship is represented as a table.
+	- When moving from an ER (Entity-Relationship) model to an implementation, we use SQL to represent the design as tables.
+- **Attributes in the Study (Relationship) Table:**
+	- In the relationship table, there are two foreign keys: Roll Number and Course ID.
+	- Roll Number is a foreign key referencing the Student entity's primary key.
+	- Course ID is a foreign key referencing the Course entity's primary key.
+- **Data Entry in the Relationship Table:**
+	- In a Many-to-Many relationship, students can study multiple courses, and courses can be studied by multiple students.
+	- Therefore, the data in the relationship table reflects these relationships.
+	- For example, Roll Number 1 can be associated with both Course C1 and Course C2.
+- **Composite Primary Key:**
+	- The primary key of the relationship table is a composite key formed by combining Roll Number and Course ID.
+	- This combination ensures uniqueness for each entry in the table.
+- **Reducing the Number of Tables:**
+	- In Many-to-Many relationships, you cannot reduce the number of tables.
+	- Each entity and the relationship table must be maintained separately.
+	- In other relationships like One-to-One or One-to-Many, table reduction is possible by merging tables based on common keys.
+- **Key Takeaways:**
+	- Many-to-Many relationships involve multiple entities on both sides, such as students taking multiple courses and courses having multiple students.
+	- The relationship table has foreign keys referencing the primary keys of the associated entities.
+	- The primary key in the relationship table is typically a composite key.
+	- In Many-to-Many relationships, you cannot reduce the number of tables.
+- **Conclusion:**
+	- Understanding Many-to-Many relationships is vital in database design and management. It involves representing complex relationships between entities and using composite keys for unique identification in relationship tables.
+- ---
+## Lecture 69: **Introduction to Transaction Concurrency**
+- **Introduction to Transactions:**
+	- A transaction is defined as a set of operations used to perform a logical unit of work.
+	- Transactions involve a series of actions, which may include reading and writing data, to achieve a specific task.
+	- While the term "transaction" often evokes thoughts of financial transactions, it encompasses a broader range of operations in the context of databases.
+- **Example of a Transaction: ATM Withdrawal**
+	- The lecture begins with a practical example: an ATM withdrawal.
+	- In this scenario, a series of operations are performed to withdraw money from an ATM.
+	- These operations include inserting a card, choosing a language, selecting an account, entering the withdrawal amount, providing a PIN, and finally, receiving the money.
+	- The successful completion of these operations constitutes a transaction.
+- **Purpose of Transactions:**
+	- Transactions are performed to accomplish a specific task or work.
+	- While monetary transactions (e.g., transferring money between accounts) are common, transactions in the database context can involve various tasks, including reading and updating data.
+- **Transactions in Databases:**
+	- Transactions in databases involve two fundamental operations: **read** and **write**.
+		- **Read operation:** Accessing data from the database, typically from a hard disk to RAM for faster processing.
+		- **Write operation:** Modifying data in the database, which includes making changes to data in RAM, not necessarily in the database itself.
+- **Components of a Database Transaction:**
+	- To illustrate a database transaction, a simple example of transferring money between two accounts (A and B) is used.
+	- The process involves the following steps:
+		- 1. **Read:** Retrieve the balance of account A from the database (read from hard disk to RAM).
+		- 2. **Calculate:** Deduct the transfer amount from the balance of account A (performed in RAM).
+		- 3. **Write:** Update the balance of account A in RAM.
+		- 4. **Read:** Retrieve the balance of account B from the database (read from hard disk to RAM).
+		- 5. **Calculate:** Add the transferred amount to the balance of account B (performed in RAM).
+		- 6. **Write:** Update the balance of account B in RAM.
+		- 7. **Commit:** Permanently save the changes made in RAM to the database (write the updated data to the hard disk).
+- **Role of RAM in Transactions:**
+	- RAM is used to perform read and write operations in a transaction.
+	- It acts as an intermediate storage where data is manipulated during a transaction before being permanently saved to the database.
+- **Transaction States and Properties:**
+	- Transactions have various states and properties, including:
+		- **Active:** The initial state where a transaction is executing its operations.
+		- **Partially Committed:** A state where some of the transaction's changes are saved but not all.
+		- **Committed:** The final state where all changes made in a transaction are permanently saved.
+		- **Aborted:** If a transaction encounters an error or is canceled, it may enter this state, and all changes are rolled back.
+		- **Isolation:** Ensures that concurrent transactions do not interfere with each other.
+		- **Consistency:** Ensures that a transaction brings the database from one consistent state to another.
+		- **Durability:** Guarantees that once a transaction is committed, its changes are permanent.
+- **Conclusion:**
+	- Transactions in databases involve sets of operations used to perform specific tasks or work.
+	- These operations include read and write actions.
+	- RAM serves as an intermediate storage for data during transactions.
+	- Transactions have various states and properties, including active, partially committed, committed, aborted, isolation, consistency, and durability.
+	- Understanding transactions is fundamental to database management and ensuring data integrity.
+## Lecture70: **ACID Properties in Database Transactions**
+- **Introduction to ACID Properties:**
+	- The lecture discusses ACID properties in the context of database transactions.
+	- ACID stands for Atomicity, Consistency, Isolation, and Durability, which are fundamental properties to ensure the reliability and integrity of database transactions.
+- **Atomicity Property:**
+	- Atomicity means that a transaction is treated as a single, indivisible unit of work.
+	- Either all the operations within a transaction are executed successfully, or none of them are.
+	- If a transaction fails at any point, it is entirely rolled back, ensuring that no partial changes are made.
+	- Examples include ATM transactions and online payments where either the entire process is completed, or no changes are made.
+- **Consistency Property:**
+	- Consistency ensures that a transaction brings the database from one consistent state to another.
+	- Before the transaction begins and after it is completed, the total sum of the affected data should remain the same.
+	- Consistency property prevents situations where transactions leave the database in an inconsistent state.
+	- For instance, transferring money between accounts should maintain the total balance.
+- **Isolation Property:**
+	- Isolation addresses the concurrent execution of transactions.
+	- Multiple transactions running in parallel should not interfere with each other.
+	- It considers whether a parallel schedule of transactions can be converted into a serial schedule conceptually, ensuring consistent results.
+	- Isolation property helps in maintaining data integrity in multi-user environments.
+- **Durability Property:**
+	- Durability ensures that once a transaction is committed, its changes are permanent and will survive system failures.
+	- Changes made by a transaction should be saved in durable storage (e.g., hard disk) and not lost even if the system crashes.
+	- It guarantees that the database will reflect the results of a committed transaction even after a power outage or system crash.
+	- Durability provides long-term reliability to the database.
+- **Summary:**
+	- ACID properties are fundamental to database transactions.
+	- Atomicity ensures that either all or none of the operations in a transaction are executed.
+	- Consistency maintains the overall data integrity before and after a transaction.
+	- Isolation prevents interference between concurrently executing transactions.
+	- Durability guarantees that committed changes are permanently saved, surviving system failures.
+	- Understanding and implementing ACID properties are crucial for reliable and robust database management.
+## Lecture71: **Transaction States**
+- **Introduction to Transaction States:**
+	- Transactions in database systems pass through various states during their execution.
+	- These states help manage the execution, recovery, and resource allocation of transactions.
+	- Understanding transaction states is essential for ensuring data consistency and system reliability.
+- **Active State:**
+	- The transaction starts in the active state.
+	- In this state, the transaction is executing its operations.
+	- CPU executes read and write operations, performing data manipulation.
+	- The data is temporarily stored in RAM (Random Access Memory) for faster access.
+	- Active state represents the point at which the transaction begins its execution.
+- **Partially Committed State:**
+	- The partially committed state occurs when a transaction has executed all its operations except the final commit operation.
+	- At this point, all the changes are made in RAM, and data may not yet be saved permanently in the database.
+	- The transaction is partially committed and awaits the final commitment step.
+	- Data remains in shared memory, not yet persisted in the database.
+- **Commit State:**
+	- The commit state is reached when the transaction successfully completes all its operations, including the final commit operation.
+	- In this state, all the changes made by the transaction are saved permanently in the database.
+	- The transaction data is written to the durable storage (e.g., hard disk), ensuring its persistence.
+	- Committing means making the transaction's changes permanent.
+- **Failed State:**
+	- A transaction can enter the failed state if an error or unexpected event occurs during its execution.
+	- Failure can happen in any state, even in the initial active state.
+	- When a transaction fails, it cannot proceed further in its execution.
+	- Failed transactions must be managed and, in most cases, aborted or restarted.
+- **Abort State:**
+	- An aborted transaction is one that has failed and is explicitly terminated.
+	- Aborting a transaction means rolling back all the changes made by the transaction.
+	- The transaction's state is reset to the initial state before it started execution.
+	- Resources allocated to the aborted transaction are released.
+	- Aborted transactions can be restarted at a later time.
+- **Termination State:**
+	- Termination is the final state of a transaction.
+	- In this state, all the resources occupied by the transaction are released and returned to the system.
+	- The transaction is removed from the system, and its execution is complete.
+	- Resources include CPU time, memory, registers, and network bandwidth.
+- **Summary:**
+	- Transactions in database systems pass through several states, including active, partially committed, commit, failed, abort, and termination states.
+	- Understanding these states is crucial for managing the execution, recovery, and resource allocation of transactions.
+	- Failed transactions are usually aborted and can be restarted, ensuring data consistency and system reliability.
+## Lecture72: **Serial Schedule vs. Parallel** **Schedule in Transactions**
+- **Introduction to Schedule:**
+	- A schedule is a fundamental concept in transaction management.
+	- It represents the chronological execution sequence of multiple transactions in a database system.
+	- Schedules are essential for managing the order in which transactions are executed.
+- **Serial Schedule:**
+	- In a serial schedule, transactions are executed one after the other, in a sequential manner.
+	- Only one transaction is allowed to execute at a time.
+	- The next transaction begins only after the previous one has been completed.
+	- Serial schedules ensure data consistency but may lead to waiting times for other transactions.
+	- Example: Traditional banking transactions, where customers wait for their turn at the bank's counter.
+- **Advantages of Serial Schedule:**
+	- 1. Consistency: Serial schedules ensure data consistency because transactions are executed one at a time, preventing interference.
+- **Disadvantages of Serial Schedule:**
+	- 1. Waiting Times: Serial schedules can lead to significant waiting times for transactions, reducing system performance.
+	- 2. Low Throughput: Due to sequential execution, the number of transactions executed per unit time (throughput) is lower.
+- **Parallel Schedule:**
+	- In a parallel schedule, multiple transactions can start and execute concurrently.
+	- Transactions are allowed to overlap in their execution.
+	- Parallel schedules are designed for high throughput and improved performance.
+	- Multiple transactions can be processed simultaneously, reducing waiting times.
+	- Example: Online banking systems, e-commerce platforms, and railway ticket booking websites.
+- **Advantages of Parallel Schedule:**
+	- 1. High Throughput: Parallel schedules maximize throughput, as multiple transactions can be executed simultaneously.
+	- 2. Reduced Waiting Times: Parallel schedules minimize waiting times for transactions, enhancing system performance.
+	- 3. Improved Resource Utilization: System resources are efficiently utilized as multiple transactions run concurrently.
+- **Disadvantages of Parallel Schedule:**
+	- 1. Complexity: Managing parallel schedules can be more complex due to potential concurrency issues.
+	- 2. Data Integrity Challenges: Ensuring data consistency in parallel execution requires careful coordination.
+- **Real-World Examples:**
+	- Serial Schedule Example: Traditional banking transactions where customers wait for their turn at the bank counter.
+	- Parallel Schedule Example: Online banking systems, e-commerce platforms, and railway ticket booking websites where multiple users can perform transactions simultaneously.
+- **Conclusion:**
+	- Schedules play a vital role in managing the execution order of transactions.
+	- Serial schedules ensure data consistency but may lead to waiting times.
+	- Parallel schedules offer high throughput and reduced waiting times, making them preferable for modern systems.
+	- The choice between serial and parallel schedules depends on the system's performance requirements and concurrency considerations.
+- Note 1: **Types of Concurrency Problems in Transactions**
+- **Introduction to Concurrency:**
+	- Concurrency in transactions refers to multiple transactions working simultaneously, often in a parallel schedule.
+	- Concurrency can lead to various issues that affect data consistency and correctness.
+- **Types of Concurrency Problems:**
+	- 1. **Dirty Read:**
+		- Occurs when Transaction T1 reads a data item, makes changes to it, and Transaction T2 reads the same data item before T1 commits.
+		- If T1 fails after the read, T2 operates on uncommitted, potentially incorrect data.
+		- This can result in incorrect outcomes and data inconsistency.
+	- 2. **Incorrect Summary (Uncommitted Read/Read After Write) Problem:**
+		- Arises when Transaction T1 reads a data item, modifies it, and Transaction T2 reads the same data item before T1 commits.
+		- T2 computes an aggregate function (e.g., average) based on T1's uncommitted changes.
+		- If T1 fails or rolls back, the computed summary by T2 becomes incorrect.
+		- This can lead to inaccurate calculations and data inconsistency.
+	- 3. **Lost Update:**
+		- Occurs when two transactions, T1 and T2, read the same data item concurrently.
+		- T1 updates the item with one value, and T2 updates it with another value.
+		- If T2 commits before T1, T1's update is lost, and the final value is based on T2's changes.
+		- This leads to the loss of one transaction's updates.
+	- 4. **Unrepeatable Read:**
+		- Happens when Transaction T1 reads a data item, and Transaction T2 reads the same item and changes it.
+		- T1 then reads the item again and observes different values, which are inconsistent.
+		- This inconsistency arises because the data changes between T1's reads.
+	- 5. **Phantom Read:**
+		- Occurs when Transaction T1 reads a set of data, and Transaction T2 deletes or inserts data affecting T1's read set.
+		- When T1 reads the data again, it observes changes (phantom rows) that were not present in the initial read.
+		- Phantom reads lead to inconsistencies when data is inserted or deleted by other transactions during T1's execution.
+- **Conclusion:**
+	- Concurrency problems can arise when multiple transactions operate concurrently.
+	- These issues can lead to data inconsistency and incorrect results.
+	- Proper transaction isolation levels and concurrency control mechanisms are essential to mitigate these problems and maintain data integrity.
+- Note 2: **Write-Read Conflict (Dirty Read) Problem in Transactions**
+- **Introduction:**
+	- The write-read problem, also known as a write-read conflict or dirty read problem, is a type of concurrency problem in transactions.
+	- Concurrency allows multiple transactions to execute simultaneously, leading to the possibility of conflicts.
+- **Understanding the Write-Read Problem:**
+	- In a typical scenario, when one transaction is writing (modifying) data in a database, it should prevent other transactions from reading that data until the write operation is committed.
+	- However, in parallel execution, situations can arise where a transaction reads data that another transaction is currently writing, leading to a conflict.
+- **Example Scenario:**
+	- Consider two transactions, T1 and T2, and a schedule S containing these transactions.
+	- T1 starts first, reads the value of A from the database (initially 70), subtracts 50 (A = A - 50), and writes the updated value (20).
+	- T2 begins during T1's execution and reads the value of A (20) before T1 commits.
+	- If T1 fails and rolls back, the value 20 becomes invalid in the database.
+	- T2, however, is working with the value 20 (which is now dirty or incorrect) and performs operations based on this data.
+	- When T2 commits, the dirty data (20) is written back to the database, causing data inconsistency.
+- **Dirty Read Problem:**
+	- The core issue in the write-read problem is that a transaction reads data that was modified by another transaction but has not been committed yet.
+	- If the modifying transaction fails, the read transaction operates on invalid or "dirty" data, leading to incorrect results.
+	- Dirty reads can cause data inconsistency and should be avoided.
+- **Conclusion:**
+	- The write-read conflict (dirty read) problem occurs when a transaction reads data that is being modified by another transaction before it is committed.
+	- This issue can lead to incorrect and inconsistent data in the database.
+	- Transaction isolation levels and concurrency control mechanisms are used to address and prevent such problems.
+## Lecture73: **Read-Write Problem (Read-Write Conflict)**
+- **Introduction:**
+	- The read-write problem, also known as the read-write conflict or unrepeatable read problem, is a standard issue that can occur in parallel schedules involving multiple transactions.
+- **Parallel Schedules:**
+	- Parallel schedules involve the simultaneous execution of multiple transactions accessing the same data.
+- **Understanding the Read-Write Problem:**
+	- In parallel schedules, issues can arise when multiple transactions attempt to read and write data concurrently, potentially leading to conflicts.
+	- The read-write problem focuses on scenarios where one transaction reads data while another transaction writes to the same data, causing data inconsistency.
+- **Four Cases in Parallel Schedules:**
+	- In parallel schedules, there are four possible cases based on read and write operations:
+		- 1. Read-Read
+		- 2. Read-Write (Focus of this explanation)
+		- 3. Write-Read
+		- 4. Write-Write
+- **Read-Write Problem Scenario:**
+	- Consider two transactions, T1 and T2, both interacting with the same data item A.
+	- Initially, the value of A is 2 in the database.
+	- T1 begins and reads the value of A (reads 2).
+	- T2 starts and also reads the value of A (reads 2).
+	- T2 proceeds to write a new value to A (writes 0) and commits, updating the database.
+	- T1 resumes its execution but reads the outdated value of A (reads 0), leading to confusion and incorrect results.
+	- This inconsistency occurs because T1 was reading while T2 was writing, causing a read-write conflict or the read-write problem.
+- **Examples of the Read-Write Problem:**
+	- 1. Train Reservation: Multiple users simultaneously checking the availability of train seats. If one user reserves seats while another is still checking, it can lead to incorrect seat availability information.
+	- 2. Library Book Reservations: Several users attempting to reserve the same book in a library. If one user reserves the book while another is still checking, it can result in incorrect book availability.
+- **Conclusion:**
+	- The read-write problem is a common issue in parallel schedules where one transaction reads data while another transaction writes to the same data.
+	- This can lead to data inconsistency and incorrect results.
+	- To address such issues, transaction isolation levels and concurrency control mechanisms are used to ensure data integrity in parallel executions.
+## Lecture74: **Irrecoverable Schedule**
+- **Introduction:**
+	- Irrecoverable schedules and recoverable schedules are two key concepts in the study of transactions and concurrency control in database management systems (DBMS).
+	- In this explanation, we focus on irrecoverable schedules and their characteristics.
+- **Recoverability in Schedules:**
+	- In transaction scheduling, one important aspect is recoverability, which refers to the ability to recover a consistent state even if transactions fail or are aborted.
+	- Recoverability is essential to maintain the integrity of the database and ensure that partial or incomplete transactions do not leave the system in an inconsistent state.
+- **Understanding Irrecoverable Schedules:**
+	- Irrecoverable schedules are those schedules in which it is impossible to recover a consistent state of the database after a transaction failure.
+	- These schedules violate the basic principles of recoverability, making it impossible to undo the changes made by a transaction that has failed.
+- **Example of an Irrecoverable Schedule:**
+	- Consider a schedule S involving two transactions, T1 and T2, in a parallel execution scenario.
+	- Transaction T1 starts by reading data item A from the database and subsequently modifies it.
+	- Transaction T2 begins during the execution of T1 and reads the value of A from T1's modifications.
+	- T2 also performs modifications to data item A and commits its changes to the database.
+	- While T2 has committed, T1 is still in progress. However, during T1's execution, it encounters a failure, such as a hardware failure, software crash, or system outage.
+	- As per the ACID properties (Atomicity, Consistency, Isolation, Durability), if a transaction fails, it should be rolled back to a consistent state or not have any impact on the database.
+	- In the case of an irrecoverable schedule, T1 cannot be rolled back to a consistent state because T2 has already committed its changes to the database.
+	- Therefore, the changes made by T2 are permanent, and there is no way to undo them, resulting in data inconsistency.
+	- In essence, the system is left in an irrecoverable state, as T1's changes cannot be applied, and T2's changes are already permanent.
+- **Conclusion:**
+	- Irrecoverable schedules are schedules in which it is impossible to recover a consistent state after a transaction failure.
+	- These schedules violate the recoverability property, posing a risk to data integrity.
+	- In practical database systems, the goal is to ensure recoverable schedules to maintain data consistency and reliability even in the presence of transaction failures.
+## Lecture75: **Cascading vs. Cascade-less Schedules**
+- **Introduction:**
+	- In this lecture, we will explore the concepts of cascading schedules and cascadeless schedules, which are important aspects of transaction management in database systems.
+- **Cascading Schedules:**
+	- Cascading schedules are schedules where one event, such as a transaction failure or rollback, triggers a series of additional events or rollbacks in other transactions.
+	- Cascading schedules can lead to performance degradation and unnecessary rollbacks of transactions.
+- **Example of Cascading Schedules:**
+	- Consider a scenario with multiple transactions: T1, T2, T3, and T4.
+	- T1 starts by performing operations on a data item, such as Read(A) and Write(A).
+	- While T1 is still in progress, T2 begins and attempts to Read(A). T2 reads the value of A modified by T1, not the original value from the database.
+	- If T1 later encounters a failure and is rolled back, T2 has already performed operations based on T1's changes. This can lead to a cascading effect where T2 and any subsequent transactions may also need to be rolled back.
+	- Cascading schedules result in wasted CPU cycles and reduced system performance due to unnecessary rollbacks.
+- **Cascade-less Schedules:**
+	- Cascadeless schedules aim to prevent cascading effects by restricting when transactions can read data modified by other transactions.
+	- In a cascadeless schedule, a transaction is not allowed to read data that has been modified by another uncommitted transaction.
+	- This restriction ensures that transactions do not read and operate on data that might later be rolled back, preventing cascading rollbacks.
+- **Preventing Cascading Effects:**
+	- To prevent cascading effects and create a cascadeless schedule, transactions must adhere to the following rules:
+		- 1. If Transaction A performs Read(A) and Transaction B performs Write(A), Transaction A must not read A again until Transaction B commits.
+		- 2. Transactions should not read data items that have been modified by other uncommitted transactions. They should read only the original data from the database.
+- **Write-Write Problem in Cascadeless Schedules:**
+	- While cascadeless schedules prevent the read-after-write problem, they may still encounter a write-write problem or lost updation problem.
+	- The write-write problem occurs when a transaction modifies a data item, but its changes are lost due to a later transaction failure.
+	- For example, if Transaction A modifies A and Transaction B modifies A afterward, if Transaction B fails, the changes made by Transaction A may also be lost.
+- **Conclusion:**
+	- Cascadeless schedules aim to prevent cascading rollbacks by restricting when transactions can read data modified by other transactions.
+	- Cascading schedules, on the other hand, allow transactions to read and operate on data that might be rolled back, leading to performance issues and potential data inconsistencies.
+	- While cascadeless schedules address the read-after-write problem, they may still encounter the write-write problem, which needs to be handled carefully.
+## Lecture76: **Serializability in Database Transactions**
+- **Introduction to Serializability:**
+	- Serializability is a crucial concept in database management systems, especially in the context of transactions.
+	- It deals with determining whether a given schedule of transactions can be transformed into an equivalent serial schedule.
+- **Serial Schedules vs. Parallel Schedules:**
+	- A **serial schedule** is a schedule in which one transaction is executed entirely before another transaction begins.
+	- A **parallel schedule** involves multiple transactions that may interleave their operations, leading to potential concurrency.
+- **Identifying Parallel Schedules:**
+	- To identify a parallel schedule, look for transactions that overlap in their execution, indicating concurrent operations.
+- **Serializability Goal:**
+	- The goal of serializability is to determine if there exists a serial schedule equivalent to a given parallel schedule.
+- **Transforming Parallel to Serial:**
+	- To determine serializability, you need to check if you can transform a parallel schedule into a serial one.
+	- You may need to reorder transactions to ensure that they execute serially.
+- **Methods for Checking Serializability:**
+	- Two methods are commonly used to check serializability:
+		- 1. **Conflict Serializable:** This method examines whether transactions in a schedule conflict with each other and if the conflicts can be resolved to make the schedule serializable.
+		- 2. **View Serializable:** This method explores whether different transactions in the schedule provide the same final result as some serial execution of the transactions.
+- **Number of Possible Serial Orders:**
+	- For a given parallel schedule with 'n' transactions, there are 'n!' (n factorial) possible serial orders in which these transactions can be executed.
+	- To determine serializability, you need to find at least one valid serial order among these possibilities.
+- **Conclusion:**
+	- Serializability in database transactions is a vital concept for ensuring data consistency and concurrency control.
+	- It involves transforming parallel schedules into equivalent serial schedules to determine if a schedule is serializable.
+	- Two common methods for checking serializability are conflict serializability and view serializability.
+	- To find a valid serial order, consider all possible serial orders of transactions and choose one that satisfies serializability constraints.
+## [**Lecture 77**](https://youtu.be/ckqDozxECp0): **Finding Conflict Equivalent Schedules**
+- **Introduction to Finding Conflict Equivalent Schedules:**
+	- The goal is to determine if two given schedules are conflict equivalent, i.e., if they can be transformed into each other through swaps of conflicting operations.
+- **Conflict Equivalent Schedules:**
+	- Conflict equivalent schedules are schedules that can be transformed into each other by swapping conflicting operations while preserving their overall structure.
+- **Conflict Pairs and Non-Conflict Pairs:**
+	- **Conflict Pairs:** Pairs of operations that conflict with each other, such as read-write conflicts and write-write conflicts.
+	- **Non-Conflict Pairs:** Pairs of operations that do not conflict with each other, including read-read pairs and operations on different variables.
+- **Checking for Conflict Equivalence:**
+	- To check if two schedules, S and S', are conflict equivalent, follow these steps:
+		- 1. Compare the positions of the operations in both schedules.
+		- 2. Identify non-conflict pairs that are adjacent in one schedule but not in the other.
+		- 3. If there are non-conflict pairs, swap their positions.
+		- 4. Repeat the process until no more swaps can be made.
+		- 5. If the schedules become identical through swaps or transformations, they are conflict equivalent.
+- **Conclusion:**
+	- Finding conflict equivalent schedules involves comparing the positions of operations, identifying adjacent non-conflict pairs, and swapping their positions to make the schedules identical.
+	- If two schedules can be made identical through such swaps, they are considered conflict equivalent.
+	- Conflict equivalence is a valuable concept in concurrency control and ensures that different schedules can provide the same results.
+## [**Lecture 78**](https://youtu.be/zv0ba0Iok1Y): **Conflict Serializability**
+- **Introduction to Conflict Serializability:**
+	- Conflict serializability is used to determine if a given schedule can be considered conflict serializable or not.
+- **Conflict Serializability Definition:**
+	- Conflict serializability is a property of a schedule that indicates whether it can be transformed into a serial schedule while preserving the order of conflicting operations.
+- **Analyzing Conflict Serializability:**
+	- To analyze whether a schedule is conflict serializable, you need to follow specific steps.
+	- **Step 1: Create a Precedence Graph:**
+		- Start by creating a precedence graph.
+		- The number of vertices in the graph is equal to the number of transactions in the schedule.
+		- Label the vertices with transaction names (e.g., T1, T2, T3).
+	- **Step 2: Identify Conflict Pairs:**
+		- Identify conflict pairs in the schedule.
+		- Conflict pairs include:
+			- Read-Write (e.g., Read(X) and Write(X))
+			- Write-Read (e.g., Write(Y) and Read(Y))
+			- Write-Write (e.g., Write(Z) and Write(Z))
+		- Note that operations on different variables are not considered conflicts.
+- **Step 3: Draw Edges in the Precedence Graph:**
+	- For each conflict pair, draw directed edges between the corresponding transactions in the precedence graph.
+	- The direction of the edge goes from the operation causing the conflict to the operation affected by the conflict.
+- **Step 4: Check for Cycles:**
+	- After drawing edges, check if there are any cycles (loops) in the graph.
+	- A cycle indicates that the schedule is not conflict serializable.
+- **Step 5: Determine Conflict Serializability:**
+	- If there are no cycles in the graph, the schedule is conflict serializable.
+	- If cycles exist, the schedule is not conflict serializable.
+- **Result:**
+	- No cycles are found in the graph.
+	- Therefore, the schedule is conflict serializable.
+- **Conclusion:**
+	- Conflict serializability is a key concept in ensuring that a schedule can be converted into a serial schedule without violating the order of conflicting operations.
+	- By analyzing conflict pairs and creating a precedence graph, you can determine whether a given schedule is conflict serializable or not.
+## [**Lecture 79**](https://youtu.be/8LKM_RWeroM): **View Serializability**
+- **Conflict Serializability Recap:**
+	- Conflict serializability is a method used to determine if a schedule is conflict serializable or not.
+	- It involves creating a precedence graph and checking for the presence of cycles.
+	- If a schedule contains cycles in the precedence graph, it is considered non-conflict serializable.
+- **Scenario 1: Conflict Serializability Analysis:**
+	- Given schedule 'S' with three transactions: T1, T2, and T3.
+	- The schedule is analyzed for conflict pairs (e.g., Read-Write, Write-Read, Write-Write).
+	- A precedence graph is created based on the conflict pairs.
+	- If there is a cycle in the precedence graph, the schedule is non-conflict serializable.
+	- In this scenario, a loop (T1 to T2 and back) exists in the graph, indicating non-conflict serializability.
+- **Scenario 2: Reordered Schedule for View Serializability:**
+	- The same schedule 'S' is rearranged.
+	- Transactions T1, T2, and T3 are considered in a different order: T1, T2, and T3.
+	- The positions of the Write(A) operations are swapped, making them appear above and below.
+	- This new schedule is analyzed for view serializability.
+- **View Serializability:**
+	- View serializability focuses on whether two schedules produce the same final result or view of the database, even if their individual steps differ.
+	- View serializability is less restrictive than conflict serializability.
+- **Scenario 2 Analysis: View Serializability:**
+	- In this reordered schedule, transactions are now considered in the order T1, T2, and T3.
+	- The analysis checks if the final result (value of A) remains the same.
+	- Even though the individual steps differ, the final result in both cases is A=0.
+	- This indicates that the schedules are view serializable.
+- **Conclusion:**
+	- Conflict serializability and view serializability are methods to assess the consistency and serializability of schedules in database transactions.
+	- Conflict serializability focuses on conflicts between operations and the presence of cycles in the precedence graph.
+	- View serializability considers whether two schedules produce the same final result or view of the database.
+	- View serializability is less restrictive and can handle schedules that conflict serializability may label as non-serializable.
+	- The choice between these methods depends on the specific requirements and constraints of the database system.
+## [**Lecture 80**](https://www.youtube.com/watch?v=94C0V7f2zm4): **Concurrency Control Protocols - Shared-Exclusive Locking**
+- **Introduction:**
+	- The primary aim of concurrency control protocols is to ensure serializability and recoverability in concurrent database transactions.
+- **Aim of Concurrency Control Protocols:**
+	- The goal of concurrency control protocols is not just to check for serializability but to make schedules serializable and recoverable.
+	- Achieving serializability and recoverability ensures data consistency and adheres to the ACID properties of transactions.
+- **Locking Protocols:**
+	- Locking protocols are mechanisms used to control access to data items in a concurrent environment.
+	- There are various locking protocols, including:
+		- 1. Simple Locking Protocol
+		- 2. Shared-Exclusive Locking Protocol
+		- 3. Two-Phase Locking (2PL) Protocol
+		- 4. Rigorous 2PL Protocol
+		- 5. Strict 2PL Protocol
+		- 6. Timestamp Protocol
+- **Shared-Exclusive Locking Protocol (S-X Locking):**
+	- Shared-Exclusive Locking is one of the simplest and most basic locking protocols.
+	- It uses two types of locks: Shared Lock and Exclusive Lock.
+	- Shared Lock (S): Allows multiple transactions to read the data item but not write to it.
+	- Exclusive Lock (X): Allows a single transaction to both read and write to the data item.
+- **Usage of Shared and Exclusive Locks:**
+	- When a transaction only needs to read a data item, it acquires a shared lock on that item.
+	- When a transaction needs to perform both read and write operations on a data item, it acquires an exclusive lock.
+- **Compatibility Table:**
+	- The compatibility table is crucial for determining whether a lock request can be granted.
+	- It contains entries for different combinations of requested and granted locks:
+		- Shared-Shared: Yes (granted)
+		- Shared-Exclusive: No (not granted)
+		- Exclusive-Shared: No (not granted)
+		- Exclusive-Exclusive: No (not granted)
+	- The table ensures that conflicting lock requests are not granted to maintain data consistency.
+- **Achieving Serializability and Consistency:**
+	- Shared-Exclusive Locking protocol plays a crucial role in achieving serializability and consistency in database transactions.
+	- It prevents conflicts that could lead to inconsistent data by granting or denying lock requests based on the compatibility table.
+	- Ensuring that transactions acquire appropriate locks for their operations helps maintain data integrity.
+- **Conclusion:**
+	- Concurrency control protocols, such as Shared-Exclusive Locking, are essential for managing concurrent access to data items in a database.
+	- These protocols aim to achieve serializability, recoverability, and data consistency.
+	- The compatibility table is used to determine whether a lock request can be granted, based on the type of lock already held and the requested lock.
+	- Proper application of locking protocols helps maintain the ACID properties of transactions and ensures the reliability of database operations.
+## [**Lecture 81**](https://youtu.be/UsqtDD1VriY): **Shared-Exclusive Locking Protocol - Problems and Considerations**
+- **Advantages of Shared-Exclusive Locking:**
+	- Shared-Exclusive Locking is a simple method with straightforward software implementation and programming.
+- **Problems with Shared-Exclusive Locking:**
+	- 1. **No Guarantee of Serializability:**
+		- Shared-Exclusive Locking does not guarantee that a schedule will always be serializable.
+		- Serializability depends on how transactions are ordered, and in some cases, this protocol may not produce a serializable schedule.
+		- It is important to note that serializability may not always be achieved with this protocol.
+	- 2. **Not Necessarily Free from Irrecoverability:**
+		- Shared-Exclusive Locking does not guarantee that schedules will always be recoverable.
+		- Recoverability depends on factors beyond the locking protocol, and irrecoverable schedules can still occur.
+		- This protocol does not ensure that all schedules will be recoverable.
+	- 3. **Not Necessarily Free from Deadlock:**
+		- Deadlock is possible in Shared-Exclusive Locking.
+		- Deadlock occurs when transactions are waiting for resources that are locked by other transactions, and both are unable to proceed.
+		- Deadlocks can occur in certain situations, making it important to handle deadlock scenarios.
+	- 4. **Not Necessarily Free from Starvation:**
+		- Starvation is when a transaction waits for a resource for an extended period but eventually gets access.
+		- Shared-Exclusive Locking can lead to starvation, as transactions may need to wait for exclusive locks held by others.
+		- While transactions eventually get access, they may wait for longer periods, which is considered a form of resource starvation.
+- **Serializability and Shared-Exclusive Locking:**
+	- Shared-Exclusive Locking may or may not lead to serializability, depending on the specific schedule and how transactions request and release locks.
+	- Serializability is not guaranteed in all cases, and schedules need to be analyzed carefully.
+- **Recoverability and Shared-Exclusive Locking:**
+	- Recoverability is also not guaranteed by Shared-Exclusive Locking.
+	- Irrecoverable schedules can still occur, and the protocol itself does not address all aspects of recoverability.
+- **Deadlock and Shared-Exclusive Locking:**
+	- Deadlocks can occur in Shared-Exclusive Locking when transactions are waiting for locks held by other transactions.
+	- Proper deadlock detection and resolution mechanisms are necessary to handle such situations.
+- **Starvation and Shared-Exclusive Locking:**
+	- Starvation, where transactions wait for a long time to acquire locks, can occur in Shared-Exclusive Locking.
+	- While transactions eventually make progress, the delay in obtaining locks can lead to resource starvation.
+- **Conclusion:**
+	- Shared-Exclusive Locking is a simple concurrency control protocol.
+	- It has advantages in terms of simplicity but is not free from problems like lack of guaranteed serializability, recoverability, deadlock, and potential resource starvation.
+	- Proper understanding and management of these issues are essential when using this locking protocol in database systems.
+## [**Lecture 82**](https://youtu.be/1pUaEDNLWi4): **Two-Phase Locking Protocol (2PL)**
+- **Introduction to 2PL:**
+	- Let's explore the Two-Phase Locking Protocol (2PL), which is an extension of simple, shared, and exclusive locking protocols, addressing some of their limitations.
+- **Two Phases in 2PL:**
+	- 2PL introduces two distinct phases:
+		- 1. **Growing Phase:** In this phase, transactions acquire locks but do not release any locks yet. They can keep acquiring locks as needed.
+		- 2. **Shrinking Phase:** In this phase, transactions release locks but do not acquire any new locks. Locks acquired during the growing phase are released during the shrinking phase.
+- **Acquiring and Releasing Locks:**
+	- Transactions in the growing phase can acquire locks as needed, based on their operations.
+	- Transactions in the shrinking phase release locks that they have acquired earlier during the growing phase.
+- **Achieving Serializability with 2PL:**
+	- The primary objective of 2PL is to achieve serializability, which was not always guaranteed in the simpler locking protocols.
+	- 2PL ensures that schedules are serializable by controlling the order in which transactions acquire and release locks.
+- **Serializability Example:**
+	- Consider two transactions, T1 and T2.
+	- T1 demands Read(A) followed by Write(A), and T2 demands Read(A).
+	- With 2PL, T1 would acquire an exclusive lock on A first and then release it after completing its operations.
+	- T2 would wait until T1 releases the lock on A before proceeding.
+	- This ensures serializability, as T1 always precedes T2.
+- **Consistency and Serializability:**
+	- Any schedule following the 2PL protocol is guaranteed to be serializable.
+	- Serializability leads to consistency, ensuring that the database remains in a consistent state.
+- **Lock Points in 2PL:**
+	- Lock points are crucial for analyzing the serializability of schedules.
+	- A lock point is the point in a transaction's execution where it releases its first lock.
+	- By comparing lock points of transactions, you can determine their relative order in the schedule.
+	- The transaction with an earlier lock point precedes others in terms of serializability.
+- **Compatibility Table and 2PL:**
+	- The compatibility table, discussed previously in simple, shared, and exclusive locking, plays a role in determining whether locks can be granted in 2PL.
+	- In 2PL, you can grant shared locks on shared locks but not exclusive locks on shared locks, following compatibility rules.
+- **Blocking and Compatibility in 2PL:**
+	- In 2PL, if a transaction in the growing phase requests an exclusive lock on a resource already locked with shared locks, it will be blocked.
+	- Blocking ensures that shared and exclusive locks do not conflict, adhering to the compatibility rules.
+- **Conclusion:**
+	- The Two-Phase Locking Protocol (2PL) introduces the concepts of growing and shrinking phases.
+	- 2PL ensures serializability and, as a result, consistency in schedules.
+	- Lock points are used to analyze and determine the serializability order of transactions.
+	- Compatibility rules and blocking mechanisms are used to prevent conflicting lock requests.
+	- 2PL is a valuable protocol for achieving serializability in database management systems.
+## [**Lecture 83**](https://youtu.be/pZExswIjVsk): **Problems in Two-Phase Locking Protocol (2PL)**
+- **Advantages of 2PL:**
+	- 2PL always ensures serializability, which is a significant advantage.
+	- Serializability guarantees that schedules are conflict-serializable and, therefore, consistent.
+- **Irrecoverability in 2PL:**
+	- 2PL does not guarantee recoverability; it may produce irrecoverable schedules.
+	- Irrecoverable schedules are those in which, even after a failure and rollback, certain transactions cannot be rolled back because they have committed.
+	- Example: T1 performs Read(A) and Write(A), and T2 performs Read(A). T1's changes are read by T2. If T2 commits and T1 fails, T2 cannot be rolled back, leading to irrecoverability.
+- **Cascading Rollback in 2PL:**
+	- Cascading rollback is possible in 2PL, meaning that rolling back one transaction may necessitate rolling back multiple transactions.
+	- Example: T1 changes data, T2 reads T1's changes, and T3 reads T2's changes. If T1 rolls back, T2 and T3 must also be rolled back.
+- **Deadlocks in 2PL:**
+	- Deadlocks can occur in 2PL when transactions wait indefinitely for resources held by other transactions.
+	- Deadlock happens when two transactions each need a resource held by the other.
+	- It results in a circular waiting condition, where neither transaction releases its resources.
+	- Deadlocks can occur when transactions compete for resources in a circular manner, causing a standstill.
+- **Starvation in 2PL:**
+	- Starvation is another issue in 2PL.
+	- Starvation occurs when a transaction is delayed indefinitely because it keeps waiting for resources that are continually granted to other transactions.
+	- It can happen when a transaction is repeatedly unable to acquire a resource it needs, even though it eventually might.
+- **Conclusion:**
+	- While the Two-Phase Locking Protocol (2PL) offers advantages like serializability, it has several drawbacks.
+	- These include irrecoverability, cascading rollbacks, deadlocks, and the possibility of starvation.
+	- It's essential to understand these issues to design and manage database systems effectively.
+	- Variations of 2PL, such as strict 2PL, may address some of these problems, but 2PL itself is not free from these limitations.
+## [**Lecture 84**](https://youtu.be/z8Yqn91akV8): **Strict 2PL and Rigorous 2PL**
+- **Introduction:**
+	- These protocols build upon the basic 2PL and aim to address issues like irrecoverability and cascading rollback.
+- **Basic 2PL Recap:**
+	- Basic 2PL involves a growing phase and a shrinking phase, with transactions acquiring locks in the growing phase and releasing them in the shrinking phase.
+	- In the basic 2PL, there are issues like irrecoverability, cascading rollback, deadlock, and starvation.
+- **Strict 2PL:**
+	- Strict 2PL is an extension of basic 2PL with added restrictions.
+	- It follows the growing and shrinking phases of basic 2PL but imposes an extra restriction: all exclusive locks must be held until the transaction either commits or aborts.
+	- This restriction ensures that exclusive locks are not released prematurely, reducing the chances of cascading rollback.
+- **Example of Cascading Rollback in Basic 2PL:**
+	- Suppose transactions T1, T2, and T3 are involved.
+	- T1 obtains an exclusive lock on A and changes it.
+	- T2 reads A, and T3 also wants to read A.
+	- If T1 rolls back after T2 reads A but before T3's operation, cascading rollback occurs, and T3 must also roll back.
+- **Advantages of Strict 2PL:**
+	- 1. **Cascading Rollback Prevention:** Strict 2PL ensures that exclusive locks are not released until a transaction commits or aborts, preventing cascading rollbacks.
+	- 2. **Strict Recoverability:** Transactions in Strict 2PL always produce a strict recoverable schedule, which guarantees both recoverability and cascadeless behavior.
+- **Rigorous 2PL:**
+	- Rigorous 2PL is another variation of basic 2PL, with even more stringent restrictions.
+	- Similar to Strict 2PL, it includes the growing and shrinking phases.
+	- However, Rigorous 2PL adds a stricter rule: no shared or exclusive locks can be released.
+	- In other words, once a lock is acquired, it cannot be released until the transaction either commits or aborts.
+- **Advantages of Rigorous 2PL:**
+	- **Cascadeless Behavior:** Rigorous 2PL ensures cascadeless behavior, meaning that cascading rollbacks are prevented entirely.
+- **Comparison: Strict 2PL vs. Rigorous 2PL:**
+	- Strict 2PL releases exclusive locks only upon commit or abort, while Rigorous 2PL doesn't release any locks (shared or exclusive) until commit or abort.
+	- Both protocols ensure cascadeless behavior and strict recoverability.
+- **Conservative 2PL (Theoretical):**
+	- Conservative 2PL is a theoretical concept that isn't practically feasible.
+	- It suggests that transactions should acquire all necessary locks before they even begin execution.
+	- In practice, this approach isn't realistic because transactions cannot predict all the locks they'll need upfront.
+- **Conclusion:**
+	- Strict 2PL and Rigorous 2PL are variations of basic 2PL that provide stricter locking rules to address issues like irrecoverability and cascading rollback.
+	- Strict 2PL ensures cascadeless behavior and strict recoverability.
+	- Rigorous 2PL goes further by not allowing any shared or exclusive locks to be released until commit or abort.
+	- Conservative 2PL is a theoretical concept that is not practical in real database systems.
+## [**Lecture 85**](https://youtu.be/27NtGV1vNoY): **Timestamp Ordering Protocol**
+- **Introduction:**
+	- Timestamps play a crucial role in this protocol to determine the order of transactions.
+- **Timestamp Basics:**
+	- A timestamp is a unique value assigned to each transaction when it enters the system.
+	- Timestamps are used to establish the order in which transactions enter the system.
+	- Older transactions are assigned lower timestamps, and newer transactions receive higher timestamps.
+	- Timestamps help in managing the concurrency of transactions.
+- **Timestamp Components:**
+	- Three key components related to timestamps:
+		- 1. **Timestamp of Transaction (TS(Ti)):** The unique value assigned to a transaction Ti upon entering the system.
+		- 2. **Read Timestamp (RTS):** The timestamp of the most recent transaction that successfully read a particular data item.
+		- 3. **Write Timestamp (WTS):** The timestamp of the most recent transaction that successfully wrote to a particular data item.
+- **Priority Based on Timestamps:**
+	- In Timestamp Ordering Protocol, transactions are prioritized based on their timestamps.
+	- Older transactions are given higher priority over newer transactions.
+- **Timestamp Rules:**
+	- 1. **Read-Write Conflict Rule:**
+		- If a younger transaction (higher timestamp) attempts to write to a data item that an older transaction (lower timestamp) has read, it is not allowed.
+		- Reason: We prioritize older transactions to complete first. Allowing a younger transaction to write after an older transaction has read would lead to incorrect data.
+	- 2. **Write-Read Conflict Rule:**
+		- If a younger transaction (higher timestamp) attempts to read a data item that an older transaction (lower timestamp) has written to, it is not allowed.
+		- Reason: We prioritize older transactions to complete first. Allowing a younger transaction to read after an older transaction has written could result in reading incorrect data.
+	- 3. **Write-Write Conflict Rule:**
+		- If a younger transaction (higher timestamp) attempts to write to a data item that an older transaction (lower timestamp) has also written to, it is not allowed.
+		- Reason: Allowing a younger transaction to write after an older transaction has written would lead to lost updates.
+- **Serializability:**
+	- The Timestamp Ordering Protocol ensures conflict serializability.
+	- Conflict serializability means that transactions are scheduled in a way that their executions do not result in conflicts or anomalies, guaranteeing a consistent database state.
+- **Conclusion:**
+	- The Timestamp Ordering Protocol uses timestamps to prioritize transactions and prevent conflicts.
+	- Older transactions are given precedence to ensure serializability and maintain data integrity.
+	- Understanding the three timestamp components (TS, RTS, WTS) and applying the timestamp rules is crucial for implementing this protocol effectively.
+## [**Lecture 86**](https://youtu.be/h60vaqrXHO8): **Numeric Question on Basic Timestamp Ordering Protocol**
+- **Key Concepts Recap:**
+	- Timestamps are unique values assigned to transactions upon entering the system.
+	- Older transactions have lower timestamps, and newer transactions have higher timestamps.
+	- Transactions are prioritized based on their timestamps.
+	- We have three components: Timestamp of Transaction (TS(Ti)), Read Timestamp (RTS), and Write Timestamp (WTS).
+	- Timestamp rules involve handling conflicts in Read and Write operations.
+- **Numerical Scenario:**
+	- We have a schedule with three transactions: T1, T2, and T3, with timestamps 100, 200, and 300, respectively.
+	- We will apply timestamp rules to this schedule to understand how transactions interact.
+- **Application of Timestamp Rules:**
+	- 1. **Read(A) by T1:**
+		- Check Write timestamp (A): 0 < 100 (T1's timestamp).
+		- Set RTS(A) to 100.
+	- 2. **Read(B) by T2:**
+		- Check Write timestamp (B): 0 < 200 (T2's timestamp).
+		- Set RTS(B) to 200.
+	- 3. **Write(C) by T1:**
+		- Check Read timestamp (C): 0 < 100 (T1's timestamp).
+		- Check Write timestamp (C): 0 < 100 (T1's timestamp).
+		- Set WTS(C) to 100.
+	- 4. **Read(B) by T3:**
+		- Check Write timestamp (B): 200 > 300 (T3's timestamp). Conflict!
+		- Rollback T3.
+	- 5. **Read(C) by T1:**
+		- Check Read timestamp (C): 100 < 100 (T1's timestamp). Conflict!
+		- Rollback T1.
+	- 6. **Write(B) by T2:**
+		- Check Read timestamp (B): 200 < 200 (T2's timestamp).
+		- Check Write timestamp (B): 0 < 200 (T2's timestamp).
+		- Set WTS(B) to 200.
+	- 7. **Read(C) by T3 (after rollback):**
+		- Check Read timestamp (C): 0 < 300 (T3's timestamp).
+		- Set RTS(C) to 300.
+	- 8. **Write(A) by T3:**
+		- Check Read timestamp (A): 0 < 300 (T3's timestamp).
+		- Check Write timestamp (A): 0 < 300 (T3's timestamp).
+		- Set WTS(A) to 300.
+	- 9. **Write(A) by T1 (after rollback):**
+		- Check Read timestamp (A): 100 < 100 (T1's timestamp). Conflict!
+		- Rollback T1.
+	- 10. **Write(A) by T3 (after rollback):**
+		- Check Read timestamp (A): 0 < 300 (T3's timestamp).
+		- Check Write timestamp (A): 300 < 300 (T3's timestamp). Conflict!
+		- Rollback T3.
+- **Conclusion:**
+	- We applied the Timestamp Ordering Protocol to a schedule with transactions T1, T2, and T3.
+	- Transactions were rolled back in case of conflicts to maintain data consistency.
+	- Understanding the rules of timestamp ordering and practicing with numerical examples helps in mastering this concurrency control technique.
+## Lecture87: **Why Indexing is used?**
+- **Indexing in Database Systems:**
+	- It improves query performance by reducing the number of blocks accessed during data retrieval.
+- **Basic Architecture:**
+	- The key components are the CPU (processor), RAM (primary memory), and secondary memory (e.g., hard disk).
+	- The CPU processes queries, and data is stored in RAM and secondary memory.
+- **Data Retrieval Process:**
+	- When a query is executed, the CPU interacts with RAM, not directly with secondary memory.
+	- Secondary memory (e.g., hard disk) stores data blocks/pages.
+	- These blocks/pages are logical divisions of data.
+	- Data blocks contain records.
+- **Why Indexing is Important:**
+	- CPU speed (in MIPS) is much faster than the speed of accessing data from secondary memory (e.g., hard disk).
+	- Hard disk access is slow compared to CPU speed.
+	- Data is stored in secondary memory to ensure permanent storage (even after system shutdown).
+	- If all data were in RAM, it would be lost on system shutdown.
+- **Blocks and Pages:**
+	- Secondary memory is divided into blocks or pages.
+	- Blocks/pages are fixed-size logical divisions.
+	- Records are stored in these blocks/pages.
+- **Indexing's Role:**
+	- Indexing reduces the number of blocks/pages accessed during data retrieval.
+	- This reduction in I/O operations improves query performance.
+	- It minimizes the I/O cost associated with data transfer between secondary memory (hard disk) and RAM.
+	- **Example:**
+		- Suppose you have 10,000 records to retrieve.
+		- If each block can store 100 records, you need 100 blocks to store all the data.
+		- When searching for data, indexing helps reduce the number of blocks retrieved from secondary memory, decreasing I/O cost.
+- **Importance of Indexing:**
+	- Indexing is like a book index that helps you find information quickly.
+	- It minimizes the time and cost associated with data retrieval.
+	- Without indexing, searching through all records would be time-consuming.
+- **Conclusion:**
+	- The lecture introduces the concept of indexing, emphasizing its importance in reducing I/O cost during data retrieval.
+	- It provides a basic understanding of why indexing is essential for improving query performance.
+	- The lecture sets the stage for further discussions on how indexing works and its real-world applications.
+## Lecture88: **Numerical Example on I/O Cost in Indexing Part 1**
+- **Understanding Indexing in Database Systems:**
+	- Indexing is a crucial concept in databases, and understanding it through numerical examples is essential.
+	- Indexing helps improve query performance and reduces I/O cost.
+- **Numerical Problem:**
+	- Consider a hard disk with a block size of 1000 bytes.
+	- Each record (or row) has a size of 250 bytes.
+	- There are a total of 10,000 records to be stored on the hard disk.
+	- Data is unordered, meaning it can be inserted in any order.
+- **Key Points to Determine:**
+	- 1. Number of records that can fit in each block.
+	- 2. Total number of blocks required to store all the records.
+	- 3. Average time complexity to search for a record from the hard disk.
+- **Calculations:**
+	- 1. **Number of Records per Block:**
+		- To calculate how many records can fit in each block, divide the block size (1000 bytes) by the record size (250 bytes).
+		- Result: 1000 bytes / 250 bytes per record = 4 records per block.
+	- 2. **Total Number of Blocks Required:**
+		- To determine the total number of blocks needed to store 10,000 records, divide the total number of records by the number of records per block.
+		- Result: 10,000 records / 4 records per block = 2,500 blocks required.
+	- 3. **Average Time Complexity to Search for a Record:**
+		- In the absence of indexing, searching for a record involves scanning blocks one by one.
+		- Best Case: 1 block is scanned (record found in the first block).
+		- Worst Case: All 2,500 blocks are scanned (record found in the last block).
+		- Average Case: (Best Case + Worst Case) / 2 = (1 + 2,500) / 2 = 1,250 blocks are scanned on average.
+	- Time Complexity:
+		- Best Case: O(1) (constant time)
+		- Worst Case: O(N) (linear time)
+		- Average Case: O(N/2) ≈ O(N) (linear time)
+- **Conclusion:**
+	- Without indexing, the average time complexity for searching a record from the hard disk is approximately O(N), where N is the number of blocks.
+	- Indexing aims to reduce this time complexity by further optimizing the search process, as discussed in future videos.
+	- Understanding indexing is essential for improving query performance and database efficiency.
+## Lecture89: **Numerical Example on I/O Cost in Indexing Part 2**
+- This lecture continues the discussion on indexing in databases and focuses on the impact of indexing on I/O cost and search complexity.
+- **Recap from Part 1:**
+	- In Part 1, we explored the I/O cost of searching for a record on a hard disk without indexing.
+	- We calculated that the average time complexity for searching a record without indexing is approximately O(N), where N is the number of blocks.
+- **Numerical Problem:**
+	- We're given a hard disk with specific parameters:
+		- Block size in hard disk: 1000 bytes
+		- Record size: 250 bytes
+		- Total number of records to be stored: 10,000
+		- Data is unordered, meaning it can be inserted randomly.
+- **Key Points to Determine:**
+	- 1. Number of records that can fit in each block.
+	- 2. Total number of blocks required to store all the records.
+	- 3. Average time complexity to search for a record from the hard disk.
+- **Solution with Indexing:**
+	- We now introduce indexing into the equation.
+	- In the index table:
+		- Block size in index table: 1000 bytes
+		- Each entry size: 20 bytes
+	- Indexing involves creating key-value pairs and pointers to locate records efficiently.
+- **Calculations for Sparse Indexing:**
+	- Sparse indexing implies that only a few entries exist in the index table.
+	- If each block in the index table can hold 50 entries:
+		- Total entries to be added to the index table: 2,500 (corresponding to the 2,500 blocks in the hard disk).
+		- Average time complexity to search a record:
+			- Logarithmic search complexity: Log2(2,500) = 12
+			- Add 1 for accessing the block directly.
+		- Total search complexity: 12 + 1 = 13
+- **Calculations for Dense Indexing:**
+	- Dense indexing means an entry for every record.
+	- With 10,000 entries in the index table:
+		- Average time complexity to search a record:
+			- Logarithmic search complexity: Log2(10,000) = 14
+			- Add 1 for accessing the block directly.
+		- Total search complexity: 14 + 1 = 15
+- **Comparison:**
+	- Without indexing, the average time complexity for searching a record is approximately O(N), where N is the number of blocks (12 in this case).
+	- With sparse indexing, the average time complexity is significantly reduced to 13.
+	- With dense indexing, the average time complexity is slightly higher at 15.
+	- Both indexing methods result in a lower time complexity compared to searching without indexing.
+- **Conclusion:**
+	- Indexing significantly reduces I/O cost and search complexity.
+	- Sparse indexing is more efficient when data is unordered, as it reduces the number of entries.
+	- Dense indexing is suitable for ordered data but may require more storage space.
+	- Understanding indexing is crucial for optimizing database search operations.
+## Lecture90: **Types of Indexes in Databases**
+- **Introduction:**
+	- Indexing is a crucial aspect of database management and can significantly impact query performance.
+- **Types of Indexes:**
+	- 1. **Primary Index:**
+		- **Ordered Data + Key:**
+			- Primary index is used when data is ordered (sorted), and there is a unique key attribute in the data.
+			- Data can be ordered either in ascending or descending order.
+			- When a table has a primary key, a primary index is automatically created.
+			- Primary indexes are efficient for retrieval when both data order and key uniqueness are guaranteed.
+	- 2. **Clustered Index:**
+		- **Ordered Data + Non-Key:**
+			- Clustered index is used when data is ordered (sorted), but there is no unique key attribute.
+			- Data order is maintained, but there may be duplicate values in the key attribute.
+			- Clustered indexes are often used in databases like Oracle and SQL Server.
+			- They dictate the physical order of data rows in the table.
+	- 3. **Secondary Index:**
+		- **Unordered Data + Key:**
+			- Secondary index is used when data is unordered (not sorted), but there is a unique key attribute.
+			- Data may not follow any specific order, but a key attribute ensures uniqueness.
+			- Secondary indexes are useful for quickly locating records based on key values in unsorted data.
+	- 4. **Secondary Index:**
+		- **Unordered Data + Non-Key:**
+			- Secondary index is also used when data is unordered (not sorted), and there is no unique key attribute.
+			- In this case, neither data order nor key uniqueness is guaranteed.
+			- Secondary indexes help speed up searches for non-key attributes in unsorted data.
+- **Key Takeaways:**
+	- Primary indexes are used for ordered data with a unique key attribute.
+	- Clustered indexes are employed for ordered data without a unique key.
+	- Secondary indexes are used for unordered data, whether with or without a unique key.
+	- Understanding the type of data and its indexing needs is essential for optimizing database query performance.
+- **Conclusion:**
+	- Different types of indexes are used in databases to optimize data retrieval based on the characteristics of the data and the indexing requirements.
+	- Proper indexing can significantly enhance query performance and database efficiency.
+## Lecture91: **Primary Index in Databases**
+- **Primary Index Conditions:**
+	- A primary index is applied to data files that are stored in secondary memory, typically on hard disks, to ensure permanent storage.
+	- There are two essential conditions that must be met for a primary index to be used:
+		- 1. **Ordered Data:** The data should be ordered, either in ascending or descending order. Ordering is necessary for efficient indexing.
+		- 2. **Key Value:** The data should have a unique key value. This key value helps in uniquely identifying and locating records.
+- **Key Components of Primary Index:**
+	- In a primary index, two main components are created:
+		- 1. **Key Values:** These are the values used to search for specific data. For example, in a student database, the roll number can be a key value.
+		- 2. **Pointers:** Pointers are associated with key values and point to the location of the corresponding data in the data file.
+- **Sparse vs. Dense Primary Index:**
+	- When data is ordered and unique, the primary index can be implemented as either sparse or dense.
+	- **Sparse Primary Index:** In a sparse primary index, not every data record in the data file corresponds to an entry in the index. Entries are created at specific intervals. This method reduces the number of entries in the index.
+	- **Dense Primary Index:** In a dense primary index, every data record in the data file has a corresponding entry in the index. This means that there is a one-to-one relationship between data records and index entries.
+	- Sparse primary indexes are preferred as they reduce the complexity and size of the index, making it more efficient.
+- **Number of Entries in Index Table:**
+	- In a sparse primary index, the number of entries in the index table is equal to the number of blocks in the data file.
+	- This means that for each block of data, there is one entry in the index table, and the entry contains a pointer to that block.
+- **Search Time Complexity:**
+	- The time complexity for searching using a primary index is generally given as **(Log₂N + 1)**, where:
+		- **Log₂N:** Logarithm base 2 of the number of blocks in the index table.
+		- **+1:** An additional search is required to locate the actual data in the data file once the block containing the data is identified using the index.
+- **Conclusion:**
+	- Primary indexes are used for ordered data with unique key values.
+	- They significantly improve data retrieval efficiency by reducing search time.
+	- Sparse primary indexes are preferred due to their efficiency in managing data and pointers.
+	- Understanding the conditions and benefits of primary indexes is crucial for effective database design and management.
+## Lecture92: **Clustered index in Databases**
+- **Clustered Index Conditions:**
+	- A clustered index is applied to data files stored in secondary memory (typically on hard disks) under the following conditions:
+		- 1. **Ordered Data:** The data should be ordered, either in ascending or descending order. Ordering is essential for efficient indexing.
+		- 2. **Non-Key Data:** Data should not necessarily have a unique key value. Non-key data implies that data values can repeat.
+	- **Example:**
+		- Consider an example table with attributes: Department number, Employee name, and Phone number.
+		- In such cases, the department number may not be unique; it can repeat for multiple employees.
+		- However, if the department numbers are sorted in ascending order, a clustered index can be used efficiently.
+- **Clustered Index Structure:**
+	- In a clustered index, unique values are used for indexing, but they may not be unique in the original data.
+	- For each unique value in the clustered index, there is a single entry in the index table.
+	- Each entry points to the corresponding block in the data file where the data with that value is stored.
+- **Handling Multiple Values in the Same Block:**
+	- In some cases, all data records with the same indexed value may not fit into a single block.
+	- For example, if there are multiple employees in the same department, some records may be in one block, and others may overflow to another.
+	- To handle this, an additional concept called **"block hanger"** is used. It's essentially a pointer to another block where the rest of the records with the same indexed value are stored.
+	- Block hangers ensure that even if the data overflows to multiple blocks, the search can still efficiently locate the relevant records.
+- **Search Time Complexity:**
+	- When searching using a clustered index, the time complexity is generally given as **(Log₂N + X)**, where:
+		- **Log₂N:** Logarithm base 2 of the number of blocks in the index table.
+		- **X:** An additional value to account for block hangers. This value can vary depending on the specific block where the data is located.
+- **Clustered Index Characteristics:**
+	- Clustered indexes are sparse, similar to primary indexes. This means that not every data record in the data file corresponds to an entry in the index table.
+	- Sparse indexing helps manage the size and complexity of the index, making it more efficient.
+- **Important Points:**
+	- Only one clustered index is allowed per table or dataset.
+	- Creating more than one clustered index is not recommended and can lead to increased I/O costs and complexity.
+	- The primary and clustered indexes cannot both be used on the same table; it's an either-or situation.
+- **Conclusion:**
+	- A clustered index is applied to ordered data that may not have unique key values.
+	- It is a sparse index, and it efficiently manages data records with the same indexed value using block hangers.
+	- Searching using a clustered index involves log-based time complexity, with an additional factor to account for block hangers.
+	- Understanding the conditions and characteristics of a clustered index is essential for effective database design and optimization.
+## Lecture93: **Secondary Index in Databases**
+- **When to Use a Secondary Index:**
+	- Secondary indexes are used when data is unordered.
+	- This means the data is not sorted in any particular order.
+	- Additionally, the data can be either key or non-key data.
+	- The secondary index is applied when the primary index may not be effective due to the nature of the queries.
+- **Key Data in Secondary Index:**
+	- If the secondary index is based on key data (e.g., unique values like PAN card numbers), it will be dense.
+	- Dense means that for every unique value in the secondary index, there will be a corresponding pointer.
+	- For example, if indexing PAN card numbers, each unique PAN number will have a pointer associated with it in the secondary index.
+	- Search time complexity: Log₂N + 1, where N is the number of blocks in the index table. The "+1" accounts for the need to search within the block after finding the correct index.
+- **Non-Key Data in Secondary Index:**
+	- If the secondary index is based on non-key data (e.g., non-unique attributes like names), it will be a mix of dense and sparse.
+	- In this case, there will be an intermediate layer of pointers between the index and the data.
+	- For each unique value in the index, there will be a block of record pointers.
+	- These record pointers will direct you to the actual data.
+	- Search time complexity: More than Log₂N + 1 due to the added complexity of intermediate layers and multiple pointers. The actual complexity will depend on the number of pointers and blocks in the index and the intermediate layers.
+- **Secondary Index Characteristics:**
+	- Secondary indexes are typically dense but can be a mix of dense and sparse in certain cases.
+	- Dense secondary indexes are common when indexing key data, where every unique value has a corresponding pointer.
+	- They are placed at the end of the book in database terminology.
+- **Conclusion:**
+	- Secondary indexes are used when data is unordered, and the primary index may not be efficient for specific queries.
+	- Key data in secondary indexes results in dense indexes, while non-key data can lead to a combination of dense and sparse indexes.
+	- Understanding secondary indexes is essential for optimizing database queries and data retrieval.
+	- Secondary indexes can be at the end of the book in the context of database storage and retrieval.
